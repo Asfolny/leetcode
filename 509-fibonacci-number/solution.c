@@ -1,15 +1,11 @@
+int F(int a, int b, int n) {
+    if (n == 1) return a + b;
+    return F(b, a + b, n - 1);
+}
+
 int fib(int n) {
     if (n < 2)
         return n;
-
-    int a = 1;
-    int b = 0;
-    while (--n) {
-        int tmp = a + b;
-        a = b;
-        b = tmp;
-    }
-
-    return a + b;
+    return F(1, 0, n);
 }
 
